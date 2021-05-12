@@ -3,7 +3,7 @@ import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'remote-redux-devtools';
 import rootReducer from '../ducks';
 
-export default function configureStore(initialState) {
+export default function configureStore(initialState, t) {
   const composeEnhancers = composeWithDevTools({
     name: 'MetaMask',
     hostname: 'localhost',
@@ -13,6 +13,6 @@ export default function configureStore(initialState) {
   return createStore(
     rootReducer,
     initialState,
-    composeEnhancers(applyMiddleware(thunkMiddleware)),
+    composeEnhancers(applyMiddleware(thunkMiddleware.withExtraArgument(t))),
   );
 }

@@ -11,7 +11,7 @@ import {
 import { getIsMainnet, getCurrentChainId } from '../../selectors';
 import fetchWithCache from '../../helpers/utils/fetch-with-cache';
 
-const BASIC_ESTIMATE_STATES = {
+export const BASIC_ESTIMATE_STATES = {
   LOADING: 'LOADING',
   FAILED: 'FAILED',
   READY: 'READY',
@@ -23,9 +23,11 @@ const GAS_SOURCE = {
 };
 
 // Actions
-const BASIC_GAS_ESTIMATE_STATUS = 'metamask/gas/BASIC_GAS_ESTIMATE_STATUS';
+export const BASIC_GAS_ESTIMATE_STATUS =
+  'metamask/gas/BASIC_GAS_ESTIMATE_STATUS';
 const RESET_CUSTOM_DATA = 'metamask/gas/RESET_CUSTOM_DATA';
-const SET_BASIC_GAS_ESTIMATE_DATA = 'metamask/gas/SET_BASIC_GAS_ESTIMATE_DATA';
+export const SET_BASIC_GAS_ESTIMATE_DATA =
+  'metamask/gas/SET_BASIC_GAS_ESTIMATE_DATA';
 const SET_CUSTOM_GAS_LIMIT = 'metamask/gas/SET_CUSTOM_GAS_LIMIT';
 const SET_CUSTOM_GAS_PRICE = 'metamask/gas/SET_CUSTOM_GAS_PRICE';
 const SET_ESTIMATE_SOURCE = 'metamask/gas/SET_ESTIMATE_SOURCE';
