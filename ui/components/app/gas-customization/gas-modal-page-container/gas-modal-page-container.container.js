@@ -228,6 +228,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     transaction,
   } = stateProps;
   const {
+    useAdvancedGasEstimation: dispatchUseAdvancedGasEstimation,
     setGasData: dispatchSetGasData,
     updateConfirmTxGasAndCalculate: dispatchUpdateConfirmTxGasAndCalculate,
     createSpeedUpTransaction: dispatchCreateSpeedUpTransaction,
@@ -270,7 +271,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         dispatchCancelAndClose();
       } else {
         dispatchSetGasData(gasLimit, gasPrice);
-        dispatchProps.useAdvancedGasEstimation();
+        useAdvancedGasEstimation();
         dispatchCancelAndClose();
       }
     },
