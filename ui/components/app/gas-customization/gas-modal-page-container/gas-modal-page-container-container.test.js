@@ -10,8 +10,8 @@ import {
 
 import {
   useAdvancedGasEstimation,
-  setGasLimit,
-  setGasPrice,
+  updateGasLimit,
+  updateGasPrice,
 } from '../../../../ducks/send';
 
 let mapDispatchToProps;
@@ -59,8 +59,8 @@ jest.mock('../../../../ducks/gas/gas.duck', () => ({
 
 jest.mock('../../../../ducks/send', () => ({
   useAdvancedGasEstimation: jest.fn(),
-  setGasLimit: jest.fn(),
-  setGasPrice: jest.fn(),
+  updateGasLimit: jest.fn(),
+  updateGasPrice: jest.fn(),
 }));
 
 require('./gas-modal-page-container.container');
@@ -126,13 +126,13 @@ describe('gas-modal-page-container container', () => {
     });
 
     describe('setGasData()', () => {
-      it('should dispatch a setGasPrice and setGasLimit action with the correct props', () => {
+      it('should dispatch a updateGasPrice and updateGasLimit action with the correct props', () => {
         mapDispatchToPropsObject.setGasData('ffff', 'aaaa');
         expect(dispatchSpy.calledTwice).toStrictEqual(true);
-        expect(setGasPrice).toHaveBeenCalled();
-        expect(setGasLimit).toHaveBeenCalled();
-        expect(setGasLimit).toHaveBeenCalledWith('ffff');
-        expect(setGasPrice).toHaveBeenCalledWith('aaaa');
+        expect(updateGasPrice).toHaveBeenCalled();
+        expect(updateGasLimit).toHaveBeenCalled();
+        expect(updateGasLimit).toHaveBeenCalledWith('ffff');
+        expect(updateGasPrice).toHaveBeenCalledWith('aaaa');
       });
     });
 
